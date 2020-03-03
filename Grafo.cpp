@@ -137,7 +137,7 @@ void Grafo::Lista() {
  * @param ori vertice de origen
  * @param dest vertice de destino
  */
-void Grafo::dijkstra(int G[5][5], int n, int ori, int dest) {
+string Grafo::dijkstra(int G[5][5], int n, int ori, int dest) {
     int cost[max][max],distance[max],pred[max];
     int visited[max],count,mindistance,nextnode,i,j;
     for(i=0;i<n;i++)
@@ -170,17 +170,23 @@ void Grafo::dijkstra(int G[5][5], int n, int ori, int dest) {
                 }
         count++;
     }
+    string res="Distancia del nodo ";
     for(i=0;i<n;i++)
         if(i!=ori) {
             if(i==dest) {
                 cout << "\nDistancia del nodo " << ori<<" al nodo "<<i << " es de: " << distance[i];
+                res=res+to_string(ori)+" al nodo "+to_string(i)+" es de: "+to_string(distance[i])+"\n";
+
+
                 cout << "\nCamino= " << i;
+                res=res+"Camino: "+to_string(i)+" ";
                 j = i;
                 do {
                     j = pred[j];
                     cout << "<-" << j;
+                    res=res+"<-"+to_string(j);
                 } while (j != ori);
             }
         }
-
+    return res;
 }

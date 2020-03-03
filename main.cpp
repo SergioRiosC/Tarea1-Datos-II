@@ -143,9 +143,10 @@ int main() {
         cout<<"n2: "<<nodo2.size()<<endl;
         int N1=stoi(nodo1);
         int N2=stoi(nodo2);
+        string resultado;
         if((nodo1.size() && nodo2.size())==1){
-            G->dijkstra(graph,5,N1,N2);
-            //DIJKSTRA
+            resultado=G->dijkstra(graph,5,N1,N2);
+            send(clientSocket,resultado.c_str(),resultado.size()+1,0);
             break;
         }
     }

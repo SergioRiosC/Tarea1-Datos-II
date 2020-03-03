@@ -88,6 +88,6 @@ public:
      * @param id vertice de origen
      * @param dest vertice de destino
      */
-    void dijkstra(int pInt[5][5], int i, int id,int dest);
+    string dijkstra(int pInt[5][5], int i, int id,int dest);
 };
 #endif //GRAFO_GRAFO_H
